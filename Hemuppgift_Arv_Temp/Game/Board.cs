@@ -1,6 +1,6 @@
 ﻿namespace Hemuppgift_Arv_Temp.Game
 {
-    internal class Board
+    public class Board
     {
         private int noPins;
 
@@ -13,10 +13,15 @@
         {
             return noPins = start;
         }
-        public int TakePins(int takepins)
+        public void TakePins(int pins)
         {
-            return noPins - takepins;
+            if (pins > noPins || pins < 0)
+            {
+                throw new ArgumentException("Invalid number of pins taken.");
+            }
+            noPins -= pins;
         }
+
 
         public int GetNoPins()
         {
